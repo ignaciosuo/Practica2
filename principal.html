@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="utf-8"> <!--Latin-->
+    <meta name="viewport" content="width=device-width, user-scalable=no"> <!--user-scalable Elimina el zoom, width define el ancho de pantalla-->
+    <link type="text/css" href="css/estilos.css" rel="stylesheet">
+</head>
+    <body>
+        <nav class="barraSuperior">
+            <button><img src="img/menu.svg"></button>
+        </nav>
+        
+        <div id="menu">
+        	
+        </div>
+
+        <div id="boton-menu">
+        	<button></button>
+        </div>
+
+        <div id="mapa">
+        	
+        </div>
+
+        <div id="botonera">
+        	<button onclick="window.location.assign('guardar.html')">Guardar Lugar</button>
+        </div>
+
+
+    </body>
+    <script>
+    	var map;
+    	 window.addEventListener('load',localizar,true);
+    	 
+		//Obtener localizacionn
+    	 function localizar(){
+    	 	navigator.geolocation.getCurrentPosition(ubicacion);
+    	 }
+
+    	 function ubicacion(datos){
+    	 	longitud = datos.coords.longitude;
+    	 	latitud = datos.coords.latitude;
+    	 	initMap();
+    	 }
+
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('mapa'), {
+    			center: {lat: latitud, lng: longitud},
+    			zoom: 8
+  			});
+
+  			
+
+  			var marker = new google.maps.Marker({
+  				animation: google.maps.Animation.DROP,
+  				position: {lat: latitud, lng: longitud},
+  				map: map,
+  				//icon: 'img/marcador1.svg',
+  				//label: 'YO',
+  				draggable:true,
+  				title: 'AQUI ESTOY'
+  			});
+		}
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPgPzbvexOcgeQzwKZKjQt3oyT0ZeNzN8">
+    </script>
+</html>

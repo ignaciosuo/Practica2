@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <meta charset="utf-8"> <!--Latin-->
+        <meta name="viewport" content="width=device-width, user-scalable=no">   <!--user-scalable Elimina el zoom, width define el ancho de pantalla-->
+        <link type="text/css" href="css/estilos.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        
+        <div id="mapa1" class="mapa">
+                
+        </div>
+
+        <div class="formulario">
+            
+            <input id="nombre" type="text" name="nombre" placeholder="Nombre..." required>
+            
+            <textarea  id= "descripcion" placeholder="Descripcion.." required></textarea>
+
+            <select id="tipo">
+                <option value="Escuela" >Escuela</option>
+                <option value="Bar">Bar</option>
+                <option value="Museo">Museo</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label required>Presupuesto</label>
+            <input type="text" name="" class="input1" id="presupuesto" required placeholder="$$$$">
+            <label required>Horario</label>
+            <input type="text" class="input1" name="" id="horario" placeholder="00:00 - 23:59" required>
+
+            <button id="btnGuardar">Guardar</button>
+        </div>
+
+    </body>
+
+
+    <script>
+        var map;
+        var latitud;
+        var longitud;
+
+        window.addEventListener('load',localizar,true);
+
+         //Obtener localizacion
+         function localizar(){
+            navigator.geolocation.getCurrentPosition(ubicacion);
+         }
+
+         function ubicacion(datos){
+            longitud = datos.coords.longitude;
+            latitud = datos.coords.latitude;
+            initMap();
+         }
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('mapa1'), {
+                center: {lat: latitud, lng: longitud},
+                zoom: 8
+            });
+
+            
+
+            var marker = new google.maps.Marker({
+                animation: google.maps.Animation.DROP,
+                position: {lat: latitud, lng: longitud},
+                map: map,
+                //icon: 'gato.png',
+                //label: 'YO',
+                draggable:true,
+                title: 'AQUI ESTOY'
+            });
+        }
+
+    </script>
+    <script>
+        /*****************GUARDAR DATOS*******************/
+        var nombre = document.getElementById('nombre');
+        var descripcion = document.getElementById('descripcion');
+        var tipo = document.getElementById('tipo');
+        var presupuesto = document.getElementById('presupuesto');
+        var horario = document.getElementById('horario');
+        var guardar = document.getElementById('btnGuardar');
+
+        var contador;
+         
+        function consultarContador(){
+            if(!localStorage.getItem('contador')){
+                localStorage.setItem('contador','0');
+            }
+        };
+
+        window.onload=function(){
+            consultarContador();
+        };
+
+        function guardarLugar(){
+
+            if(confirm('Estas seguro??')){
+                contador = localStorage.getItem('contador');
+
+                
+                localStorage.setItem('uNombre'+contador, nombre.value);
+                localStorage.setItem('uCoordenadas'+contador, latitud+' - '+longitud);
+                localStorage.setItem('uDescripcion'+contador, descripcion.value);
+                localStorage.setItem('uTipos'+contador, tipo.value);
+                localStorage.setItem('uPresupuesto'+contador, presupuesto.value);
+                localStorage.setItem('uHorario'+contador, horario.value);
+            
+                localStorage.setItem('contador',parseInt(contador)+1);
+            }
+        };
+
+        guardar.addEventListener('click', guardarLugar);
+
+    </script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPgPzbvexOcgeQzwKZKjQt3oyT0ZeNzN8">
+    </script>
+</html>

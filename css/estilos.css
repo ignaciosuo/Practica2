@@ -1,0 +1,245 @@
+*{
+	margin: 0px;
+	padding: 0px;
+
+	font-family: 'Segoe UI', 'Arial','Sans-serif';
+}
+
+body{
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+.main{
+	position: relative;
+	width: 90%;
+	height: 100%;
+	margin: 10px auto 10px auto; 
+	
+	box-sizing: border-box;
+
+
+}
+	.main > p{
+		font-size: 2em;
+		margin: 10px auto 10px auto;
+	}
+	.main>input{
+		width: 80%;
+		height: 50px;
+		display: block;
+		margin: 10px auto 10px auto; 
+		font-size: 1.1em;
+		text-align: center;
+		border-radius: 20px;
+		padding: 10px 25px;
+		border:none;
+		border-bottom: 1px solid black;
+		outline: none;
+		transition: 1s all;
+	}
+
+	.main>input:focus{
+		border: 2px solid #F06849;
+	}
+
+	
+
+	.main>button{
+		display: block;
+		width: 100px;
+		margin: 10px auto 10px auto; 
+		height: 50px;
+		font-size: 1.2em;
+		border-radius: 12px;
+		outline: none;
+		box-shadow: 0px 3px 0px rgba(0,0,0,.4);
+	}
+
+	.main>button:active{
+		
+		box-shadow:none;
+	}
+
+
+
+	/***********PRINCIPAL.HTML*/
+	/*
+	nav{
+		width: 100%;
+		height: 50px;
+		background: #9BF6CC;
+		position: fixed;
+		float: left;
+		text-align: left;
+	}
+	nav > button{
+        width: 50px;
+        height: 50px;
+        background: #9BF6CC;
+        border: none;
+        font-size: 2em;
+        color: white;
+        outline: none;
+        transition: all .5s;
+    }
+	nav>button>img{
+        -webkit-filter:invert(100%);
+	}
+	nav>button:active{
+        background: #01579B;
+        font-size: 1.8em;
+    }
+*/
+
+#mapa {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	float: left;
+	width: 100%;
+	height: 100%;
+	background: red;
+}
+
+#botonera{
+	float: left;
+	position: fixed;
+	height: 60px;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background: green;
+}
+#boton-menu{
+	position: fixed;
+	float: left;
+	width: 60px;
+	height: 60px;
+	background: yellow;
+	left: 10px;
+	top: 10px;
+	z-index: 3;
+}
+
+#botonera>button{
+	width: 80%;
+	height: 50px;
+	margin-top: 5px;
+	background: pink;
+	border-radius: 40px;
+}
+
+/************GUARDAR.HTML****************/
+body{
+	background: #9CD2DE;
+}
+
+.mapa{
+	width: 100%;
+	height: 30%;
+}
+
+.formulario{
+	width: 100%;
+	height:  70%;
+	text-align: center;
+	
+	padding: 10px;
+	box-sizing: border-box;
+
+
+}
+
+	.formulario>input{
+		display: block;
+		margin: 10px auto 10px auto; 
+		border-radius: 20px;
+		padding: 10px 20px; 
+		font-size: 1.2em;
+		box-sizing: border-box;
+		width: 90%;
+		border: none;
+		outline: none;
+	}
+
+
+	.formulario>textarea{
+		border: none;
+		height: 90px;
+		display: block;
+		margin: 10px auto 10px auto; 
+		width: 90%;
+		resize: none; 
+		padding: 10px;
+		font-size: 1.1em;
+		border-radius: 20px;
+		box-sizing: border-box;
+		outline: none;
+	}
+	.formulario>select{
+		font-size: 1.1em;
+		width: 90%;
+		height: 60px;
+		display: block;
+		margin: 10px auto 10px auto; 
+		border-radius: 20px; 
+		padding: 10px;
+		outline: none;
+	}
+
+	.formulario>label{
+		
+		float: left;
+		width: 40%;
+		box-sizing: border-box;
+		margin-top: 10px;
+		font-size: 1.1em;
+
+	}
+
+	.formulario>.input1{
+		
+		font-size: 1.1em;
+		float: left;
+		text-align: center;
+		width: 50%;
+		border-radius: 20px;
+		margin-top: 10px;
+		padding: 10px 20px; 
+		box-sizing: border-box;
+		outline: none;	
+	}
+
+	.formulario>button{
+		clear: both;
+		
+		
+		height: 50px;
+		width: 40%;
+		font-size: 1.1em;
+		border-radius: 15px;
+		padding: 10px 20px;
+		border: none;
+		margin: 10px auto 10px auto; 
+
+
+	}
+		
+
+		.formulario>textarea:focus{
+			border: 1px solid rgba(0,0,0,.8); 
+		}
+		.formulario>.input1:focus{
+			border: 1px solid rgba(0,0,0,.8); 
+		}
+		.formulario>input:focus{
+			border: 1px solid rgba(0,0,0,.8); 
+		}
+		.formulario>button:active{
+			border: 1px solid rgba(0,0,0,.8); 
+		}
